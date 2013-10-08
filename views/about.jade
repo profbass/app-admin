@@ -1,0 +1,14 @@
+doctype 5
+html(lang="en")
+  head
+    title= pageTitle
+    script(type='text/javascript').
+      if (foo) {
+         bar(1 + 5)
+      }
+  body
+  div.loginbox
+    form(name="login", action="/login", method="post")
+      input(type="text", name="user")
+      input(type="password", name="pass")
+      input(type="submit", value="login")

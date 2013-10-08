@@ -1,0 +1,28 @@
+var express = require("express");
+var http = require("http");
+var app = express();
+
+// Set the view directory to /views
+app.set("views", __dirname + "/views");
+
+// Let's use the Jade templating language
+app.set("view engine", "jade");
+
+app.all("*", function(request, response, next) {
+  //response.writeHead(200, { "Content-Type": "text/plain" });
+  next();
+});
+
+app.get("/", function(request, response) {
+  response.render("index", { message: "I love anime" });
+});
+
+app.get("/about", function(request, response) {
+  response.render("about", { message: "I love anime" });
+});
+
+app.get("*", function(request, response) {
+  response.end("404!");
+});
+
+http.createServer(app).listen(1337);
