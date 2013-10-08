@@ -16,16 +16,16 @@
 
 var express = require("express");
 var http = require("http");
-var expressControllers = require('express-controller');
+//var expressControllers = require('express-controller');
 var app = express();
 
 
-var model = new (require("/controllers"));
-model.insert({
-    title: "Home",
-    text: "...",
-    type: "index"
-});
+// var model = new (require("/controllers"));
+// model.insert({
+//     title: "Home",
+//     text: "...",
+//     type: "index"
+// });
 
 // Set the view directory to /views
 app.set("views", __dirname + "/views");
@@ -39,7 +39,7 @@ app.all("*", function(request, response, next) {
 });
 
 app.get("/", function(request, response) {
-  //response.render("index", { message: "I love anime" });
+  response.render("index", { message: "I love anime" });
 });
 
 app.get("/about", function(request, response) {
