@@ -1,6 +1,31 @@
+// var expressControllers = require('express-controller');
+
+// //Your express-app
+// var express = require("express");
+// var app = express();
+
+// //Tell expressControllers to use the controllers-directory, and use bind() to set up routing.
+// expressControllers
+// 	.setDirectory('/controllers')
+// 	.bind(app);
+
+
+
+
+
+
 var express = require("express");
 var http = require("http");
+var expressControllers = require('express-controller');
 var app = express();
+
+
+var model = new (require("/controllers"));
+model.insert({
+    title: "Home",
+    text: "...",
+    type: "index"
+});
 
 // Set the view directory to /views
 app.set("views", __dirname + "/views");
@@ -14,7 +39,7 @@ app.all("*", function(request, response, next) {
 });
 
 app.get("/", function(request, response) {
-  response.render("index", { message: "I love anime" });
+  //response.render("index", { message: "I love anime" });
 });
 
 app.get("/about", function(request, response) {
